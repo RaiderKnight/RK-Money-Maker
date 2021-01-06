@@ -1,0 +1,182 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    PreciseModify()
+    "What do I want to do?"
+    0:: money >= 500:: "Buy jewellery"
+    1:: rk_jewellerie_value > 0:: "Sell my jewellery"
+    2:: rk_jewellerie_value > 0:: "Trade my jewellery"
+    3:: "Do nothing"
+    
+    If 0
+        Price0 = Random(50, 500)
+        Price0C = Price0.convertToLocalCurrency(true)
+        Price1 = Random(600, 2500)
+        Price1C = Price1.convertToLocalCurrency(true)
+        Price2 = Random(3000, 5000)
+        Price2C = Price2.convertToLocalCurrency(true)
+        Price3 = Random(5500, 8000)
+        Price3C = Price3.convertToLocalCurrency(true)
+        Price4 = Random(9000, 14000)
+        Price4C = Price4.convertToLocalCurrency(true)
+        Price5 = Random(15000, 20000)
+        Price5C = Price5.convertToLocalCurrency(true)
+        Price6 = Random(28000, 45000)
+        Price6C = Price6.convertToLocalCurrency(true)
+        Price7 = Random(50000, 75000)
+        Price7C = Price7.convertToLocalCurrency(true)
+        
+        "There are many choice for jewellery here. Honestly, I will take my time to choose !"
+        0:: money + rk_jewellerie_value >= Price0:: "Cheap jewellery for <Price0C>"
+        1:: money + rk_jewellerie_value >= Price1:: "Affordable jewellery for <Price1C>"
+        2:: money + rk_jewellerie_value >= Price2:: "Classy jewellery for <Price2C>"
+        3:: money + rk_jewellerie_value >= Price3:: "Nice jewellery for <Price3C>"
+        4:: money + rk_jewellerie_value >= Price4:: "Fashion jewellery for <Price4C>"
+        5:: money + rk_jewellerie_value >= Price5:: "Handcrafted jewellery for <Price5C>"
+        6:: money + rk_jewellerie_value >= Price6:: "Finest jewellery for <Price6C>"
+        7:: money + rk_jewellerie_value >= Price7:: "First quality jewellery for <Price7C>"
+        8:: "Buy nothing"
+        
+        If 0
+            money -= Price0
+            rk_jewellerie_value += Price0*Random(1, 1.05)
+            mood += Random(0, 2)
+        Elseif 1
+            money -= Price1
+            rk_jewellerie_value += Price1*Random(1, 1.05)
+            mood += Random(0, 2)
+        Elseif 2
+            money -= Price2
+            rk_jewellerie_value += Price2*Random(1, 1.05)
+            mood += Random(0, 3)
+        Elseif 3
+            money -= Price3
+            rk_jewellerie_value += Price3*Random(1.01, 1.05)
+            mood += Random(0, 4)
+        Elseif 4
+            money -= Price4
+            rk_jewellerie_value += Price4*Random(1.02, 1.05)
+            mood += Random(0, 4)
+        Elseif 5
+            money -= Price5
+            rk_jewellerie_value += Price5*Random(1.02, 1.05)
+            mood += Random(0, 5)
+        Elseif 6
+            money -= Price6
+            rk_jewellerie_value += Price6*Random(1.02, 1.05)
+            mood += Random(0, 5)
+        Elseif 7
+            money -= Price7
+            rk_jewellerie_value += Price7*Random(1.03, 1.05)
+            mood += Random(0, 5)
+        Endif
+    Elseif 1
+        Price0Mb = 1000*Random(0.8, 1.05)
+        Price1Mb = 5000*Random(0.8, 1.05)
+        Price2Mb = 10000*Random(0.8, 1.05)
+        Price3Mb = 25000*Random(0.8, 1.05)
+        Price4Mb = 50000*Random(0.8, 1.05)
+        Price5Mb = 100000*Random(0.8, 1.05)
+        Price6Mb = rk_jewellerie_value*Random(0.8, 1.05)
+        
+        
+        "It's time to get rid of some jewellery !"
+        0:: rk_jewellerie_value > 1000:: "Sell 1000$ of your jewellery"
+        1:: rk_jewellerie_value > 5000:: "Sell 5000$ of your jewellery"
+        2:: rk_jewellerie_value > 10000:: "Sell 10000$ of your jewellery"
+        3:: rk_jewellerie_value > 25000:: "Sell 25000$ of your jewellery"
+        4:: rk_jewellerie_value > 50000:: "Sell 50000$ of your jewellery"
+        5:: rk_jewellerie_value > 100000:: "Sell 100000$ of your jewellery"
+        6:: rk_jewellerie_value > 1:: "Sell all my jewellery"
+        7:: "Do nothing"
+        
+        If 0
+            followUp(bargain_jewellery)
+
+        Elseif 1
+            
+            followUp(bargain1_jewellery)
+
+        Elseif 2
+            
+            followUp(bargain2_jewellery)
+            
+        Elseif 3
+            
+            followUp(bargain3_jewellery)
+            
+        Elseif 4
+            
+            followUp(bargain4_jewellery)
+            
+        Elseif 5
+            
+            followUp(bargain5_jewellery)
+
+        Elseif 6
+            
+            followUp(bargain6_jewellery)
+
+        Elseif 7
+            "Finally, I think I'll keep my jewellery !"
+        Endif
+    Elseif 2
+        JPrice0 = Random(50, 500)
+        JPrice0C = JPrice0.convertToLocalCurrency(true)
+        JPrice1 = Random(600, 2500)
+        JPrice1C = JPrice1.convertToLocalCurrency(true)
+        JPrice2 = Random(3000, 5000)
+        JPrice2C = JPrice2.convertToLocalCurrency(true)
+        JPrice3 = Random(5500, 8000)
+        JPrice3C = JPrice3.convertToLocalCurrency(true)
+        JPrice4 = Random(9000, 14000)
+        JPrice4C = JPrice4.convertToLocalCurrency(true)
+        JPrice5 = Random(15000, 20000)
+        JPrice5C = JPrice5.convertToLocalCurrency(true)
+        JPrice6 = Random(28000, 45000)
+        JPrice6C = JPrice6.convertToLocalCurrency(true)
+        JPrice7 = Random(50000, 75000)
+        JPrice7C = JPrice7.convertToLocalCurrency(true)
+        
+        "There are many choice for trade here. Honestly, I will take my time to choose !"
+        0:: money + rk_jewellerie_value >= JPrice0:: "Cheap jewellery for <JPrice0C>"
+        1:: money + rk_jewellerie_value >= JPrice1:: "Affordable jewellery for <JPrice1C>"
+        2:: money + rk_jewellerie_value >= JPrice2:: "Classy jewellery for <JPrice2C>"
+        3:: money + rk_jewellerie_value >= JPrice3:: "Nice jewellery for <JPrice3C>"
+        4:: money + rk_jewellerie_value >= JPrice4:: "Fashion jewellery for <JPrice4C>"
+        5:: money + rk_jewellerie_value >= JPrice5:: "Handcrafted jewellery for <JPrice5C>"
+        6:: money + rk_jewellerie_value >= JPrice6:: "Finest jewellery for <JPrice6C>"
+        7:: money + rk_jewellerie_value >= JPrice7:: "First quality jewellery for <JPrice7C>"
+        8:: "Buy nothing"
+        
+        If 0
+            money -= JPrice0 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice0
+        Elseif 1
+            money -= JPrice1 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice1
+        Elseif 2
+            money -= JPrice2 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice2
+        Elseif 3
+            money -= JPrice3 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice3
+        Elseif 4
+            money -= JPrice4 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice4
+        Elseif 5
+            money -= JPrice5 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice5
+        Elseif 6
+            money -= JPrice6 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice6
+        Elseif 7
+            money -= JPrice7 - rk_jewellerie_value
+            rk_jewellerie_value += JPrice7
+        Endif
+    Endif
+    SceneEnd()

@@ -1,0 +1,23 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+    Actor(Flirty)::"I offer you <Price3Mb>$ for your jewellery"
+    "What should I do?"
+    0::"Accept"
+    1::"Refuse"
+    
+    If 0
+            "That's a fair enough offer I suppose. <Price3Mb>$ more inside my pockets !"
+            rk_jewellerie_value -= Price3Mb
+            money += Price3Mb
+            
+    Else
+            followUp(buy_jewelleryprod)
+    EndIf
+
+    SceneEnd()

@@ -1,0 +1,115 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+        
+        SceneStart()
+        Actor = generatePersonTemporary()
+        Actor.dress()
+        Actor.show(3)
+        Actor2 = generatePersonTemporary()
+        Actor2.dress()
+        Actor2.show(4)
+        
+        Actor(Flirty)::"Hey! If you are interested, I can give you a little refund in exchange for sex !"
+        0:: "Say yes"
+        1:: "Say no thanks!"
+        
+    if 0    
+        Price0Mbs = 50
+        Price1Mbs = 75
+        Price2Mbs = 120
+        Price3Mbs = 250
+        Price4Mbs = 500
+        Price5Mbs = 1000
+        
+        "Ok, let see what <Actor.he_or_she> offer me !"
+        0:: "I give you $50 for striptease"
+        1:: "I give you $75 for a handjob"
+        2:: "I give you $120 for a blowjob"
+        3:: "I give you $250 for licking you"
+        4:: "I give you $500 for a anal"
+        5:: "I give you $1000 for a threesome"
+        6:: "Do nothing"
+        
+        If 0
+            Actor(Flirty)::"Follow me, let's go to play in my basement room, it's more private !"
+            money += Price0Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Sex(Actor, Player)
+            Filter(Strip)
+            pornfame += 1
+            perversion += Random(0, 0.25)
+            karma -= 0.025
+            arousal -= Random(0, 5) 
+        Elseif 1
+            Actor(Flirty)::"Follow me, let's go to play in my basement room, it's more private !"
+            money += Price1Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Actor.strip()
+            Sex(Actor, Player)
+            Filter(Handjob)
+            pornfame += 1
+            perversion += Random(0, 0.25)
+            karma -= 0.025
+            arousal -= Random(0, 10)
+        Elseif 2
+            Actor(Flirty)::"Follow me, let's go to play in my basement room, it's more private !"
+            money += Price2Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Actor.strip()
+            Sex(Actor, Player)
+            Filter(Blowjob)
+            pornfame += 1
+            perversion += Random(0, 0.5)
+            karma -= 0.025
+            arousal -= Random(0, 15)
+        Elseif 3
+            Actor(Flirty)::"Follow me, let's go to play in my basement room, it's more private !"
+            money += Price3Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Actor.strip()
+            Sex(Actor, Player)
+            Filter(LickPussy)
+            pornfame += 1
+            perversion += Random(0, 0.5)
+            karma -= 0.025
+            arousal -= Random(0, 20)
+        Elseif 4
+            Actor(Flirty)::"Follow me, let's go to play in my basement room, it's more private !"
+            money += Price4Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Actor.strip()
+            Sex(Actor, Player)
+            Filter(Anal)
+            pornfame += 1
+            perversion += Random(0, 0.75)
+            karma -= 0.025
+            arousal -= Random(0, 25)
+        Elseif 5
+            Actor(Flirty)::"Follow me, let's go play in my partner's room, <Actor.he_or_she> is downstairs working at this time but don't worry, <Actor.he_or_she> always willing to fuck  !"
+            money += Price5Mbs
+            setBackground(Basement Room)
+            Player.strip()
+            Actor.strip()
+            Actor2.strip()
+            Sex(Actor, Player, Actor2)
+            pornfame += 1
+            perversion += Random(0, 1)
+            karma -= 0.025
+            arousal -= Random(0, 30)
+        Elseif 6
+            "Finally, I'm not in the mood to have sex with stranger !"
+            followUp(buy_jewelleryprod)
+        Endif
+    Else
+       followUp(buy_jewelleryprod)
+    Endif
+SceneEnd()
+timeout(96, sex_refund)

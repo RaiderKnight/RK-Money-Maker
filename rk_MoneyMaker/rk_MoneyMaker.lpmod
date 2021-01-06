@@ -1,0 +1,7 @@
+MODULE_UNIQUEID: rk_MoneyMaker
+MODULE_NAME: Money Maker Module
+MODULE_AUTHOR: Raddeck
+MODULE_LINK: 
+MODULE_DESCRIPTION: Money deposit/withdrawn, buy/trade/sell jewellery and few extras !
+MODULE_REQUIREMENTS: vim_RoomPresets
+MODULE_VERSION: 0.1 Beta

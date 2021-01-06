@@ -1,0 +1,138 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    PreciseModify()
+    "What do I want to do?"
+    0:: money > 1000:: "Make a deposit"
+    1:: rk_money_value > 0:: "Withdraw money"
+    2:: rk_jewellerie_value > 0:: "Sell all my jewellery"
+    3:: "Do nothing"
+    
+    If 0
+        Price0M = 1000
+        Price1M = 5000
+        Price2M = 10000
+        Price3M = 25000
+        Price4M = 50000
+        Price5M = 75000
+        Price6M = 100000
+        
+        "Let's put some cash in security."
+        0:: money >= 1000:: "Make a deposit of 1000$"
+        1:: money >= 5000:: "Make a deposit of 5000$"
+        2:: money >= 10000:: "Make a deposit of 10000$"
+        3:: money >= 25000:: "Make a deposit of 25000$"
+        4:: money >= 50000:: "Make a deposit of 50000$"
+        5:: money >= 75000:: "Make a deposit of 75000$"
+        6:: money >= 100000:: "Make a deposit of 100000$"
+        7:: "Do nothing"
+        
+        If 0
+            rk_money_value += Price0M*Random(1, 1.05)
+            money -= Price0M
+            mood +0.05 
+            karma +0.05
+        Elseif 1
+            rk_money_value += Price1M*Random(1, 1.05)
+            money -= Price1M
+            
+        Elseif 2
+            rk_money_value += Price2M*Random(1, 1.05)
+            money -= Price2M
+            mood +0.05 
+            karma +0.05
+        Elseif 3
+            rk_money_value += Price3M*Random(1.01, 1.05)
+            money -= Price3M
+            mood +0.05 
+            karma +0.05
+        Elseif 4
+            rk_money_value += Price4M*Random(1.02, 1.05)
+            money -= Price4M
+            mood +0.05 
+            karma +0.05
+        Elseif 5
+            rk_money_value += Price5M*Random(1.02, 1.05)
+            money -= Price5M
+            mood +0.05 
+            karma +0.05
+        Elseif 6
+            rk_money_value += Price6M*Random(1.03, 1.05)
+            money -= Price6M
+            mood +0.05 
+            karma +0.05
+        Endif
+        
+    Elseif 1
+        Price0Mb = 1000
+        Price1Mb = 5000
+        Price2Mb = 10000
+        Price3Mb = 25000
+        Price4Mb = 50000
+        Price5Mb = 100000
+        
+        "It's time to withdraw some money !"
+        0:: rk_money_value >= 1000:: "Withdraw 1000$"
+        1:: rk_money_value >= 5000:: "Withdraw 5000$"
+        2:: rk_money_value >= 10000:: "Withdraw 10000$"
+        3:: rk_money_value >= 25000:: "Withdraw 25000$"
+        4:: rk_money_value >= 50000:: "Withdraw 50000$"
+        5:: rk_money_value >= 100000:: "Withdraw 100000$"
+        6:: rk_money_value > 0:: "Withdraw all my money"
+        7:: "Do nothing"
+        
+        If 0
+            "Yeah, $1000 more in my pocket!"
+            rk_money_value -= Price0Mb
+            money += Price0Mb
+        Elseif 1
+            "Yeah, $5000 more in my pocket!"
+            rk_money_value -= Price1Mb
+            money += Price1Mb
+        Elseif 2
+            "Yeah, $10000 more in my pocket!"
+            rk_money_value -= Price2Mb
+            money += Price2Mb
+        Elseif 3
+            "Yeah, $25000 more in my pocket!"
+            rk_money_value -= Price3Mb
+            money += Price3Mb
+        Elseif 4
+            "Yeah, $50000 more in my pocket!"
+            rk_money_value -= Price4Mb
+            money += Price4Mb
+        Elseif 5
+            "With $100000 I can do a lot of crazy things!"
+            rk_money_value -= Price5Mb
+            money += Price5Mb
+        Elseif 6
+            "I've decided my money will be safer in my pockets than here, don't ask me why!"
+            money += rk_money_value
+            rk_money_value => 0
+        Elseif 7
+            "Finally, I think I'll keep my money in my account for the moment!"
+        Endif
+    Elseif 2
+        "Ok, I guess I don't need any more jewellery. Let see how I can get for !"
+        PriceJ = rk_jewellerie_value*Random(0.9, 1.02)
+        PriceJConverted = PriceJ.convertToLocalCurrency(true)
+        "After some tough negotiation, the best price I could get for my jewellery from this bank was <PriceJConverted>. Should I go ahead with the sale?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "That's fair enough I guess. It's time to buy something else with that cash ..."
+            money += JPrice
+            rk_jewellerie_value -= JPrice
+            mood +0.05 
+            karma -0.05
+        Else
+            "I should look around first. They offering me shit for my jewellery. It worth more than that!"
+        Endif
+    Endif
+    
+    SceneEnd()
