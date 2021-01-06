@@ -1,4 +1,4 @@
-# Mod-Money-Maker
+# Money-Maker
 Module for the game LifePlay
 https://github.com/vinfamy/LifePlay
 
