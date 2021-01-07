@@ -7,7 +7,7 @@ https://github.com/vinfamy/LifePlay
 Add the possibility to deposit and withdraw money. You can also buy/sell/trade jewellery at some stores.
 
 ### Module requirements
-vim_RoomPresets
+Vima's bedroom presets (1.1) (vim_RoomPresets)
 
 ### How to install
 Download the mod and add it to : ..\LifePlay\Content\Modules
