@@ -76,22 +76,28 @@ OTHER: none
         Endif
     Elseif 1
         Price0Mb = 1000*Random(0.8, 1.05)
+        CPrice0Mb = Price0Mb.convertToLocalCurrency(true)
         Price1Mb = 5000*Random(0.8, 1.05)
+        CPrice1Mb = Price1Mb.convertToLocalCurrency(true)
         Price2Mb = 10000*Random(0.8, 1.05)
+        CPrice2Mb = Price2Mb.convertToLocalCurrency(true)
         Price3Mb = 25000*Random(0.8, 1.05)
+        CPrice3Mb = Price3Mb.convertToLocalCurrency(true)
         Price4Mb = 50000*Random(0.8, 1.05)
+        CPrice4Mb = Price4Mb.convertToLocalCurrency(true)
         Price5Mb = 100000*Random(0.8, 1.05)
+        CPrice5Mb = Price5Mb.convertToLocalCurrency(true)
         Price6Mb = rk_jewellerie_value*Random(0.8, 1.05)
-        
+        CPrice6Mb = Price6Mb.convertToLocalCurrency(true)
         
         "It's time to get rid of some jewellery !"
-        0:: rk_jewellerie_value > 1000:: "Sell 1000$ of your jewellery"
-        1:: rk_jewellerie_value > 5000:: "Sell 5000$ of your jewellery"
-        2:: rk_jewellerie_value > 10000:: "Sell 10000$ of your jewellery"
-        3:: rk_jewellerie_value > 25000:: "Sell 25000$ of your jewellery"
-        4:: rk_jewellerie_value > 50000:: "Sell 50000$ of your jewellery"
-        5:: rk_jewellerie_value > 100000:: "Sell 100000$ of your jewellery"
-        6:: rk_jewellerie_value > 1:: "Sell all my jewellery"
+        0:: rk_jewellerie_value > 1000:: "Sell <CPrice0Mb> of your jewellery"
+        1:: rk_jewellerie_value > 5000:: "Sell <CPrice1Mb> of your jewellery"
+        2:: rk_jewellerie_value > 10000:: "Sell <CPrice2Mb> of your jewellery"
+        3:: rk_jewellerie_value > 25000:: "Sell <CPrice3Mb> of your jewellery"
+        4:: rk_jewellerie_value > 50000:: "Sell <CPrice4Mb> of your jewellery"
+        5:: rk_jewellerie_value > 100000:: "Sell <CPrice5Mb> of your jewellery"
+        6:: rk_jewellerie_value > 1:: "Sell all my jewellery (<CPriceMb>)"
         7:: "Do nothing"
         
         If 0

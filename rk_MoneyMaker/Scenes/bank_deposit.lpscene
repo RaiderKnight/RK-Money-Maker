@@ -10,103 +10,132 @@ OTHER: none
     0:: money > 1000:: "Make a deposit"
     1:: rk_money_value > 0:: "Withdraw money"
     2:: rk_jewellerie_value > 0:: "Sell all my jewellery"
+    4:: rk_money_value > 0:: "How much I have in my account"
     3:: "Do nothing"
     
     If 0
         Price0M = 1000
+        Price0BC = Price0M.convertToLocalCurrency(true)
         Price1M = 5000
+        Price1BC = Price1M.convertToLocalCurrency(true)
         Price2M = 10000
+        Price2BC = Price2M.convertToLocalCurrency(true)
         Price3M = 25000
+        Price3BC = Price3M.convertToLocalCurrency(true)
         Price4M = 50000
+        Price4BC = Price4M.convertToLocalCurrency(true)
         Price5M = 75000
+        Price5BC = Price5M.convertToLocalCurrency(true)
         Price6M = 100000
+        Price6BC = Price6M.convertToLocalCurrency(true)
+        accountvalue = Player:rk_money_value
         
-        "Let's put some cash in security."
-        0:: money >= 1000:: "Make a deposit of 1000$"
-        1:: money >= 5000:: "Make a deposit of 5000$"
-        2:: money >= 10000:: "Make a deposit of 10000$"
-        3:: money >= 25000:: "Make a deposit of 25000$"
-        4:: money >= 50000:: "Make a deposit of 50000$"
-        5:: money >= 75000:: "Make a deposit of 75000$"
-        6:: money >= 100000:: "Make a deposit of 100000$"
+        "Let's put some cash in security. At the moment, I have <accountvalue>$ in my account !"
+        0:: money >= 1000:: "Make a deposit of <Price0BC>"
+        1:: money >= 5000:: "Make a deposit of <Price1BC>"
+        2:: money >= 10000:: "Make a deposit of <Price2BC>"
+        3:: money >= 25000:: "Make a deposit of <Price3BC>"
+        4:: money >= 50000:: "Make a deposit of <Price4BC>"
+        5:: money >= 75000:: "Make a deposit of <Price5BC>"
+        6:: money >= 100000:: "Make a deposit of <Price6BC>"
         7:: "Do nothing"
         
         If 0
+            "<Price0BC> added to my bank account!"
             rk_money_value += Price0M*Random(1, 1.05)
             money -= Price0M
             mood +0.05 
             karma +0.05
+            
         Elseif 1
             rk_money_value += Price1M*Random(1, 1.05)
             money -= Price1M
+            "<Price1BC> added to my bank account !"
             
         Elseif 2
             rk_money_value += Price2M*Random(1, 1.05)
             money -= Price2M
             mood +0.05 
             karma +0.05
+            "<Price2BC> added to my bank account !"
+            
         Elseif 3
             rk_money_value += Price3M*Random(1.01, 1.05)
             money -= Price3M
             mood +0.05 
             karma +0.05
+            "<Price3BC> added to my bank account !"
+            
         Elseif 4
             rk_money_value += Price4M*Random(1.02, 1.05)
             money -= Price4M
             mood +0.05 
             karma +0.05
+            "<Price4BC> added to my bank account !"
+            
         Elseif 5
             rk_money_value += Price5M*Random(1.02, 1.05)
             money -= Price5M
             mood +0.05 
             karma +0.05
+            "<Price5BC> added to my bank account !"
+            
         Elseif 6
             rk_money_value += Price6M*Random(1.03, 1.05)
             money -= Price6M
             mood +0.05 
             karma +0.05
+            "<Price6BC> added to my bank account !"
+            
         Endif
         
     Elseif 1
         Price0Mb = 1000
+        Price0Mbw = Price0Mb.convertToLocalCurrency(true)
         Price1Mb = 5000
+        Price1Mbw = Price1Mb.convertToLocalCurrency(true)
         Price2Mb = 10000
+        Price2Mbw = Price2Mb.convertToLocalCurrency(true)
         Price3Mb = 25000
+        Price3Mbw = Price3Mb.convertToLocalCurrency(true)
         Price4Mb = 50000
+        Price4Mbw = Price4Mb.convertToLocalCurrency(true)
         Price5Mb = 100000
+        Price5Mbw = Price5Mb.convertToLocalCurrency(true)
+        accountvaluew = Player:rk_money_value
         
-        "It's time to withdraw some money !"
-        0:: rk_money_value >= 1000:: "Withdraw 1000$"
-        1:: rk_money_value >= 5000:: "Withdraw 5000$"
-        2:: rk_money_value >= 10000:: "Withdraw 10000$"
-        3:: rk_money_value >= 25000:: "Withdraw 25000$"
-        4:: rk_money_value >= 50000:: "Withdraw 50000$"
-        5:: rk_money_value >= 100000:: "Withdraw 100000$"
+        "It's time to withdraw some money ! At the moment, I have <accountvalueW>$ in my account !"
+        0:: rk_money_value >= 1000:: "Withdraw <Price0Mbw>"
+        1:: rk_money_value >= 5000:: "Withdraw <Price1Mbw>"
+        2:: rk_money_value >= 10000:: "Withdraw <Price2Mbw>"
+        3:: rk_money_value >= 25000:: "Withdraw <Price3Mbw>"
+        4:: rk_money_value >= 50000:: "Withdraw <Price4Mbw>"
+        5:: rk_money_value >= 100000:: "Withdraw <Price5Mbw>"
         6:: rk_money_value > 0:: "Withdraw all my money"
         7:: "Do nothing"
         
         If 0
-            "Yeah, $1000 more in my pocket!"
+            "Yeah, <Price0Mbw> more in my pocket!"
             rk_money_value -= Price0Mb
             money += Price0Mb
         Elseif 1
-            "Yeah, $5000 more in my pocket!"
+            "Yeah, <Price1Mbw> more in my pocket!"
             rk_money_value -= Price1Mb
             money += Price1Mb
         Elseif 2
-            "Yeah, $10000 more in my pocket!"
+            "Yeah, <Price2Mbw> more in my pocket!"
             rk_money_value -= Price2Mb
             money += Price2Mb
         Elseif 3
-            "Yeah, $25000 more in my pocket!"
+            "Yeah, <Price3Mbw> more in my pocket!"
             rk_money_value -= Price3Mb
             money += Price3Mb
         Elseif 4
-            "Yeah, $50000 more in my pocket!"
+            "Yeah, <Price4Mbw> more in my pocket!"
             rk_money_value -= Price4Mb
             money += Price4Mb
         Elseif 5
-            "With $100000 I can do a lot of crazy things!"
+            "With <Price5Mbw> I can do a lot of crazy things!"
             rk_money_value -= Price5Mb
             money += Price5Mb
         Elseif 6
@@ -133,6 +162,15 @@ OTHER: none
         Else
             "I should look around first. They offering me shit for my jewellery. It worth more than that!"
         Endif
+    Elseif 4
+            Actor5 = generatePersonTemporary()
+            Actor5.dress()
+            Actor5.show(3)
+            accountvalueCheck = Player:rk_money_value
+            Actor5(Flirty)::"What can I do for you ?"
+            Player(Flirty)::"I just want to know how much I have in my account ?"
+            Actor5(Flirty)::"You have <accountvalueCheck>$"
+            Player(Flirty)::"Thank you, see you later !"
     Endif
     
     SceneEnd()
