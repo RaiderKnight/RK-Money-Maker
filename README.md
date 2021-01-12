@@ -21,3 +21,8 @@ NOT
 c:\..\LifePlay\Content\Modules\rk_MoneyMaker\rk_MoneyMaker
 
 After the mod have been installed, make sure the mod is active in the Mod Manager. 
+
+### How to update
+* Download and extract the latest version on your pc
+* Delete the old mod inside c:\..\LifePlay\Content\Modules\rk_MoneyMaker
+* Upload the new version of rk_MoneyMaker inside c:\..\LifePlay\Content\Modules\
