@@ -30,7 +30,7 @@ OTHER: none
         Price5Mbs = 1000
         Price5mC = Price5Mbs.convertToLocalCurrency(true)
         
-        "Ok, let see what <Actor.he_or_she> offer me !"
+        Player::"Ok, let see what <Actor.he_or_she> offer me !"
         0:: "I give you <Price0mC> for striptease"
         1:: "I give you <Price1mC> for a handjob"
         2:: "I give you <Price2mC> for a blowjob"
@@ -111,7 +111,7 @@ OTHER: none
             karma -= 0.025
             arousal -= Random(0, 30)
         Elseif 6
-            "Finally, I'm not in the mood to have sex with stranger !"
+            Player::"Finally, I'm not in the mood to have sex with stranger !"
             followUp(buy_jewelleryprod)
         Endif
     Else

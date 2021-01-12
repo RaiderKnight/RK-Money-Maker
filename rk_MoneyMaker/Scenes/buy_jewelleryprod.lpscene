@@ -5,184 +5,299 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    PreciseModify()
-    "What do I want to do?"
-    0:: money >= 500:: "Buy jewellery"
-    1:: rk_jewellerie_value > 0:: "Sell my jewellery"
-    2:: rk_jewellerie_value > 0:: "Trade my jewellery"
-    3:: "Do nothing"
     
-    If 0
-        Price0 = Random(50, 500)
-        Price0C = Price0.convertToLocalCurrency(true)
-        Price1 = Random(600, 2500)
-        Price1C = Price1.convertToLocalCurrency(true)
-        Price2 = Random(3000, 5000)
-        Price2C = Price2.convertToLocalCurrency(true)
-        Price3 = Random(5500, 8000)
-        Price3C = Price3.convertToLocalCurrency(true)
-        Price4 = Random(9000, 14000)
-        Price4C = Price4.convertToLocalCurrency(true)
-        Price5 = Random(15000, 20000)
-        Price5C = Price5.convertToLocalCurrency(true)
-        Price6 = Random(28000, 45000)
-        Price6C = Price6.convertToLocalCurrency(true)
-        Price7 = Random(50000, 75000)
-        Price7C = Price7.convertToLocalCurrency(true)
+    If money < -50
+        Player(Anxious)::"I am in debt. The jewellery store will not sell me anything."
+    Else
+        // Get current sextoy types
+        cheapJType = Player.getActorVar(rk_cheapJType)
+        AffordableJType = Player.getActorVar(rk_AffordableJType)
+        ClassyJType = Player.getActorVar(rk_ClassyJType)
+        NiceJType = Player.getActorVar(rk_NiceJType)
+        FashionJType = Player.getActorVar(rk_FashionJType)
+        HandcraftedJType = Player.getActorVar(rk_HandcraftedJType)
+        FinestJType = Player.getActorVar(rk_FinestJType)
+        FirstQualityJType = Player.getActorVar(rk_FirstQualityJType)
         
-        "There are many choice for jewellery here. Honestly, I will take my time to choose !"
-        0:: money + rk_jewellerie_value >= Price0:: "Cheap jewellery for <Price0C>"
-        1:: money + rk_jewellerie_value >= Price1:: "Affordable jewellery for <Price1C>"
-        2:: money + rk_jewellerie_value >= Price2:: "Classy jewellery for <Price2C>"
-        3:: money + rk_jewellerie_value >= Price3:: "Nice jewellery for <Price3C>"
-        4:: money + rk_jewellerie_value >= Price4:: "Fashion jewellery for <Price4C>"
-        5:: money + rk_jewellerie_value >= Price5:: "Handcrafted jewellery for <Price5C>"
-        6:: money + rk_jewellerie_value >= Price6:: "Finest jewellery for <Price6C>"
-        7:: money + rk_jewellerie_value >= Price7:: "First quality jewellery for <Price7C>"
-        8:: "Buy nothing"
-        
+        Player::"What do I want to do?"
+        0:: money >= 50:: "Buy jewellery"
+        1:: rk_jewellerie_value > 0:: "Sell my jewellery"
+        2:: rk_jewellerie_value > 0:: "Trade my jewellery"
+        3:: "Do nothing"
+    
         If 0
-            money -= Price0
-            rk_jewellerie_value += Price0*Random(1, 1.05)
-            mood += Random(0, 2)
+            Price0 = Random(50, 500)
+            Price0C = Price0.convertToLocalCurrency(true)
+            Price1 = Random(600, 2500)
+            Price1C = Price1.convertToLocalCurrency(true)
+            Price2 = Random(3000, 5000)
+            Price2C = Price2.convertToLocalCurrency(true)
+            Price3 = Random(5500, 8000)
+            Price3C = Price3.convertToLocalCurrency(true)
+            Price4 = Random(9000, 14000)
+            Price4C = Price4.convertToLocalCurrency(true)
+            Price5 = Random(15000, 20000)
+            Price5C = Price5.convertToLocalCurrency(true)
+            Price6 = Random(28000, 45000)
+            Price6C = Price6.convertToLocalCurrency(true)
+            Price7 = Random(50000, 75000)
+            Price7C = Price7.convertToLocalCurrency(true)
+        
+            Player::"There are many choice for jewellery here. Honestly, I will take my time to choose !"
+            0:: money + rk_jewellerie_value >= Price0:: "Cheap jewellery for <Price0C>"
+            1:: money + rk_jewellerie_value >= Price1:: "Affordable jewellery for <Price1C>"
+            2:: money + rk_jewellerie_value >= Price2:: "Classy jewellery for <Price2C>"
+            3:: money + rk_jewellerie_value >= Price3:: "Nice jewellery for <Price3C>"
+            4:: money + rk_jewellerie_value >= Price4:: "Fashion jewellery for <Price4C>"
+            5:: money + rk_jewellerie_value >= Price5:: "Handcrafted jewellery for <Price5C>"
+            6:: money + rk_jewellerie_value >= Price6:: "Finest jewellery for <Price6C>"
+            7:: money + rk_jewellerie_value >= Price7:: "First quality jewellery for <Price7C>"
+            8:: "Buy nothing"
+        
+            If 0
+                Player::"Maybe cheap, but the best gift for my children, strangers or my prostitutes..."
+                Player.setActorVar(rk_cheapJType, 1)
+                money -= Price0
+                rk_jewellerie_value += Price0*Random(1, 1.05)
+                mood += Random(0, 2)
+                                
+            Elseif 1
+                Player::"I'm pretty sure, with that I will look nice!"
+                Player.setActorVar(rk_AffordableJType, 1)
+                money -= Price1
+                rk_jewellerie_value += Price1*Random(1, 1.05)
+                mood += Random(0, 2)
+                
+            Elseif 2
+                Player::"One more classy jewellery in my chest."
+                Player.setActorVar(rk_ClassyJType, 1)
+                money -= Price2
+                rk_jewellerie_value += Price2*Random(1, 1.05)
+                mood += Random(0, 3)
+                
+            Elseif 3
+                Player::"Sure, with that I will look pretty cool !"
+                Player.setActorVar(rk_NiceJType, 1)
+                money -= Price3
+                rk_jewellerie_value += Price3*Random(1.01, 1.05)
+                mood += Random(0, 4)
+                
+            Elseif 4
+                Player::"One more fashion jewellery in my chest."
+                Player.setActorVar(rk_FashionJType, 1)
+                money -= Price4
+                rk_jewellerie_value += Price4*Random(1.02, 1.05)
+                mood += Random(0, 4)
+                
+            Elseif 5
+                Player::"One more handcrafted jewellery for my collection."
+                Player.setActorVar(rk_HandcraftedJType, 1)
+                money -= Price5
+                rk_jewellerie_value += Price5*Random(1.02, 1.05)
+                mood += Random(0, 5)
+                
+            Elseif 6
+                Player::"When you want to look rich, that's the jewellery you buy !"
+                Player.setActorVar(rk_FinestJType, 1)
+                money -= Price6
+                rk_jewellerie_value += Price6*Random(1.02, 1.05)
+                mood += Random(0, 5)
+                
+            Elseif 7
+                Player::"When you want to look very rich, that's the jewellery you buy !"
+                Player.setActorVar(rk_FirstQualityJType, 1)
+                money -= Price7
+                rk_jewellerie_value += Price7*Random(1.03, 1.05)
+                mood += Random(0, 5)
+                
+            Endif
+        
         Elseif 1
-            money -= Price1
-            rk_jewellerie_value += Price1*Random(1, 1.05)
-            mood += Random(0, 2)
+            Price0Mb = 1000*Random(0.8, 1.05)
+            CPrice0Mb = Price0Mb.convertToLocalCurrency(true)
+            Price1Mb = 5000*Random(0.8, 1.05)
+            CPrice1Mb = Price1Mb.convertToLocalCurrency(true)
+            Price2Mb = 10000*Random(0.8, 1.05)
+            CPrice2Mb = Price2Mb.convertToLocalCurrency(true)
+            Price3Mb = 25000*Random(0.8, 1.05)
+            CPrice3Mb = Price3Mb.convertToLocalCurrency(true)
+            Price4Mb = 50000*Random(0.8, 1.05)
+            CPrice4Mb = Price4Mb.convertToLocalCurrency(true)
+            Price5Mb = 100000*Random(0.8, 1.05)
+            CPrice5Mb = Price5Mb.convertToLocalCurrency(true)
+            Price6Mb = rk_jewellerie_value*Random(0.8, 1.05)
+            CPrice6Mb = Price6Mb.convertToLocalCurrency(true)
+        
+            Player::"It's time to get rid of some jewellery !"
+            0:: rk_jewellerie_value > 1000:: "I sell <CPrice0Mb> of your jewellery"
+            1:: rk_jewellerie_value > 5000:: "I sell <CPrice1Mb> of your jewellery"
+            2:: rk_jewellerie_value > 10000:: "I sell <CPrice2Mb> of your jewellery"
+            3:: rk_jewellerie_value > 25000:: "I sell <CPrice3Mb> of your jewellery"
+            4:: rk_jewellerie_value > 50000:: "I sell <CPrice4Mb> of your jewellery"
+            5:: rk_jewellerie_value > 100000:: "I sell <CPrice5Mb> of your jewellery"
+            6:: rk_jewellerie_value > 1:: "I sell all my jewellery for (<CPrice6Mb>)"
+            7:: "Do nothing"
+        
+            If 0
+                Actor(Flirty)::"I offer you <Price0Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price0Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price0
+                    money += Price0
+                    followUp(sex_refund)
+                EndIf
+     
+            Elseif 1
+                Actor(Flirty)::"I offer you <Price1Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price1Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price1
+                    money += Price1
+                    followUp(sex_refund)
+               EndIf
+
+            Elseif 2
+                Actor(Flirty)::"I offer you <Price2Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price2Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price2
+                    money += Price2
+                EndIf
+            
+            Elseif 3
+                Actor(Flirty)::"I offer you <Price3Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price3Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price3
+                    money += Price3
+                EndIf
+            
+            Elseif 4
+                Actor(Flirty)::"I offer you <Price4Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price4Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price4
+                    money += Price4
+                EndIf
+            
+            Elseif 5
+                Actor(Flirty)::"I offer you <Price5Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price5Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price5
+                    money += Price5
+                EndIf
+
+            Elseif 6
+                Actor(Flirty)::"I offer you <Price6Mb>$ for your jewellery"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price6Mb>$ more inside my pockets !"
+                    rk_jewellerie_value -= Price6
+                    money += Price6
+                EndIf
+
+            Elseif 7
+                Player::"Finally, I think I'll keep my jewellery !"
+            Endif
+        
         Elseif 2
-            money -= Price2
-            rk_jewellerie_value += Price2*Random(1, 1.05)
-            mood += Random(0, 3)
-        Elseif 3
-            money -= Price3
-            rk_jewellerie_value += Price3*Random(1.01, 1.05)
-            mood += Random(0, 4)
-        Elseif 4
-            money -= Price4
-            rk_jewellerie_value += Price4*Random(1.02, 1.05)
-            mood += Random(0, 4)
-        Elseif 5
-            money -= Price5
-            rk_jewellerie_value += Price5*Random(1.02, 1.05)
-            mood += Random(0, 5)
-        Elseif 6
-            money -= Price6
-            rk_jewellerie_value += Price6*Random(1.02, 1.05)
-            mood += Random(0, 5)
-        Elseif 7
-            money -= Price7
-            rk_jewellerie_value += Price7*Random(1.03, 1.05)
-            mood += Random(0, 5)
+            JPrice0 = Random(50, 500)
+            JPrice0C = JPrice0.convertToLocalCurrency(true)
+            JPrice1 = Random(600, 2500)
+            JPrice1C = JPrice1.convertToLocalCurrency(true)
+            JPrice2 = Random(3000, 5000)
+            JPrice2C = JPrice2.convertToLocalCurrency(true)
+            JPrice3 = Random(5500, 8000)
+            JPrice3C = JPrice3.convertToLocalCurrency(true)
+            JPrice4 = Random(9000, 14000)
+            JPrice4C = JPrice4.convertToLocalCurrency(true)
+            JPrice5 = Random(15000, 20000)
+            JPrice5C = JPrice5.convertToLocalCurrency(true)
+            JPrice6 = Random(28000, 45000)
+            JPrice6C = JPrice6.convertToLocalCurrency(true)
+            JPrice7 = Random(50000, 75000)
+            JPrice7C = JPrice7.convertToLocalCurrency(true)
+        
+            Player::"There are many choice for trade here. Honestly, I will take my time to choose !"
+            0:: money + rk_jewellerie_value >= JPrice0:: "Cheap jewellery for <JPrice0C>"
+            1:: money + rk_jewellerie_value >= JPrice1:: "Affordable jewellery for <JPrice1C>"
+            2:: money + rk_jewellerie_value >= JPrice2:: "Classy jewellery for <JPrice2C>"
+            3:: money + rk_jewellerie_value >= JPrice3:: "Nice jewellery for <JPrice3C>"
+            4:: money + rk_jewellerie_value >= JPrice4:: "Fashion jewellery for <JPrice4C>"
+            5:: money + rk_jewellerie_value >= JPrice5:: "Handcrafted jewellery for <JPrice5C>"
+            6:: money + rk_jewellerie_value >= JPrice6:: "Finest jewellery for <JPrice6C>"
+            7:: money + rk_jewellerie_value >= JPrice7:: "First quality jewellery for <JPrice7C>"
+            8:: "Buy nothing"
+        
+            If 0
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice0 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice0
+                
+            Elseif 1
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice1 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice1
+                
+            Elseif 2
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice2 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice2
+                
+            Elseif 3
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice3 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice3
+                
+            Elseif 4
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice4 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice4
+                
+            Elseif 5
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice5 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice5
+                
+            Elseif 6
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice6 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice6
+                
+            Elseif 7
+                Player::"That was a fair offer I guess. I'm hurry to wear my new jewellery !"
+                money -= JPrice7 - rk_jewellerie_value
+                rk_jewellerie_value += JPrice7
+                
+            Endif
         Endif
-    Elseif 1
-        Price0Mb = 1000*Random(0.8, 1.05)
-        CPrice0Mb = Price0Mb.convertToLocalCurrency(true)
-        Price1Mb = 5000*Random(0.8, 1.05)
-        CPrice1Mb = Price1Mb.convertToLocalCurrency(true)
-        Price2Mb = 10000*Random(0.8, 1.05)
-        CPrice2Mb = Price2Mb.convertToLocalCurrency(true)
-        Price3Mb = 25000*Random(0.8, 1.05)
-        CPrice3Mb = Price3Mb.convertToLocalCurrency(true)
-        Price4Mb = 50000*Random(0.8, 1.05)
-        CPrice4Mb = Price4Mb.convertToLocalCurrency(true)
-        Price5Mb = 100000*Random(0.8, 1.05)
-        CPrice5Mb = Price5Mb.convertToLocalCurrency(true)
-        Price6Mb = rk_jewellerie_value*Random(0.8, 1.05)
-        CPrice6Mb = Price6Mb.convertToLocalCurrency(true)
-        
-        "It's time to get rid of some jewellery !"
-        0:: rk_jewellerie_value > 1000:: "Sell <CPrice0Mb> of your jewellery"
-        1:: rk_jewellerie_value > 5000:: "Sell <CPrice1Mb> of your jewellery"
-        2:: rk_jewellerie_value > 10000:: "Sell <CPrice2Mb> of your jewellery"
-        3:: rk_jewellerie_value > 25000:: "Sell <CPrice3Mb> of your jewellery"
-        4:: rk_jewellerie_value > 50000:: "Sell <CPrice4Mb> of your jewellery"
-        5:: rk_jewellerie_value > 100000:: "Sell <CPrice5Mb> of your jewellery"
-        6:: rk_jewellerie_value > 1:: "Sell all my jewellery (<CPriceMb>)"
-        7:: "Do nothing"
-        
-        If 0
-            followUp(bargain_jewellery)
-
-        Elseif 1
-            
-            followUp(bargain1_jewellery)
-
-        Elseif 2
-            
-            followUp(bargain2_jewellery)
-            
-        Elseif 3
-            
-            followUp(bargain3_jewellery)
-            
-        Elseif 4
-            
-            followUp(bargain4_jewellery)
-            
-        Elseif 5
-            
-            followUp(bargain5_jewellery)
-
-        Elseif 6
-            
-            followUp(bargain6_jewellery)
-
-        Elseif 7
-            "Finally, I think I'll keep my jewellery !"
-        Endif
-    Elseif 2
-        JPrice0 = Random(50, 500)
-        JPrice0C = JPrice0.convertToLocalCurrency(true)
-        JPrice1 = Random(600, 2500)
-        JPrice1C = JPrice1.convertToLocalCurrency(true)
-        JPrice2 = Random(3000, 5000)
-        JPrice2C = JPrice2.convertToLocalCurrency(true)
-        JPrice3 = Random(5500, 8000)
-        JPrice3C = JPrice3.convertToLocalCurrency(true)
-        JPrice4 = Random(9000, 14000)
-        JPrice4C = JPrice4.convertToLocalCurrency(true)
-        JPrice5 = Random(15000, 20000)
-        JPrice5C = JPrice5.convertToLocalCurrency(true)
-        JPrice6 = Random(28000, 45000)
-        JPrice6C = JPrice6.convertToLocalCurrency(true)
-        JPrice7 = Random(50000, 75000)
-        JPrice7C = JPrice7.convertToLocalCurrency(true)
-        
-        "There are many choice for trade here. Honestly, I will take my time to choose !"
-        0:: money + rk_jewellerie_value >= JPrice0:: "Cheap jewellery for <JPrice0C>"
-        1:: money + rk_jewellerie_value >= JPrice1:: "Affordable jewellery for <JPrice1C>"
-        2:: money + rk_jewellerie_value >= JPrice2:: "Classy jewellery for <JPrice2C>"
-        3:: money + rk_jewellerie_value >= JPrice3:: "Nice jewellery for <JPrice3C>"
-        4:: money + rk_jewellerie_value >= JPrice4:: "Fashion jewellery for <JPrice4C>"
-        5:: money + rk_jewellerie_value >= JPrice5:: "Handcrafted jewellery for <JPrice5C>"
-        6:: money + rk_jewellerie_value >= JPrice6:: "Finest jewellery for <JPrice6C>"
-        7:: money + rk_jewellerie_value >= JPrice7:: "First quality jewellery for <JPrice7C>"
-        8:: "Buy nothing"
-        
-        If 0
-            money -= JPrice0 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice0
-        Elseif 1
-            money -= JPrice1 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice1
-        Elseif 2
-            money -= JPrice2 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice2
-        Elseif 3
-            money -= JPrice3 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice3
-        Elseif 4
-            money -= JPrice4 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice4
-        Elseif 5
-            money -= JPrice5 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice5
-        Elseif 6
-            money -= JPrice6 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice6
-        Elseif 7
-            money -= JPrice7 - rk_jewellerie_value
-            rk_jewellerie_value += JPrice7
-        Endif
-    Endif
-    SceneEnd()
+    Endif   
+SceneEnd()

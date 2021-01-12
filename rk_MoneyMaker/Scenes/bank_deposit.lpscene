@@ -6,7 +6,7 @@ OTHER: none
 
     SceneStart()
     PreciseModify()
-    "What do I want to do?"
+    Player::"What do I want to do?"
     0:: money > 1000:: "Make a deposit"
     1:: rk_money_value > 0:: "Withdraw money"
     2:: rk_jewellerie_value > 0:: "Sell all my jewellery"
@@ -30,7 +30,7 @@ OTHER: none
         Price6BC = Price6M.convertToLocalCurrency(true)
         accountvalue = Player:rk_money_value
         
-        "Let's put some cash in security. At the moment, I have <accountvalue>$ in my account !"
+        Player::"Let's put some cash in security. At the moment, I have <accountvalue>$ in my account !"
         0:: money >= 1000:: "Make a deposit of <Price0BC>"
         1:: money >= 5000:: "Make a deposit of <Price1BC>"
         2:: money >= 10000:: "Make a deposit of <Price2BC>"
@@ -41,7 +41,7 @@ OTHER: none
         7:: "Do nothing"
         
         If 0
-            "<Price0BC> added to my bank account!"
+            Player::"<Price0BC> added to my bank account!"
             rk_money_value += Price0M*Random(1, 1.05)
             money -= Price0M
             mood +0.05 
@@ -50,42 +50,42 @@ OTHER: none
         Elseif 1
             rk_money_value += Price1M*Random(1, 1.05)
             money -= Price1M
-            "<Price1BC> added to my bank account !"
+            Player::"<Price1BC> added to my bank account !"
             
         Elseif 2
             rk_money_value += Price2M*Random(1, 1.05)
             money -= Price2M
             mood +0.05 
             karma +0.05
-            "<Price2BC> added to my bank account !"
+            Player::"<Price2BC> added to my bank account !"
             
         Elseif 3
             rk_money_value += Price3M*Random(1.01, 1.05)
             money -= Price3M
             mood +0.05 
             karma +0.05
-            "<Price3BC> added to my bank account !"
+            Player::"<Price3BC> added to my bank account !"
             
         Elseif 4
             rk_money_value += Price4M*Random(1.02, 1.05)
             money -= Price4M
             mood +0.05 
             karma +0.05
-            "<Price4BC> added to my bank account !"
+            Player::"<Price4BC> added to my bank account !"
             
         Elseif 5
             rk_money_value += Price5M*Random(1.02, 1.05)
             money -= Price5M
             mood +0.05 
             karma +0.05
-            "<Price5BC> added to my bank account !"
+            Player::"<Price5BC> added to my bank account !"
             
         Elseif 6
             rk_money_value += Price6M*Random(1.03, 1.05)
             money -= Price6M
             mood +0.05 
             karma +0.05
-            "<Price6BC> added to my bank account !"
+            Player::"<Price6BC> added to my bank account !"
             
         Endif
         
@@ -104,7 +104,7 @@ OTHER: none
         Price5Mbw = Price5Mb.convertToLocalCurrency(true)
         accountvaluew = Player:rk_money_value
         
-        "It's time to withdraw some money ! At the moment, I have <accountvalueW>$ in my account !"
+        Player::"It's time to withdraw some money ! At the moment, I have <accountvalueW>$ in my account !"
         0:: rk_money_value >= 1000:: "Withdraw <Price0Mbw>"
         1:: rk_money_value >= 5000:: "Withdraw <Price1Mbw>"
         2:: rk_money_value >= 10000:: "Withdraw <Price2Mbw>"
@@ -115,52 +115,52 @@ OTHER: none
         7:: "Do nothing"
         
         If 0
-            "Yeah, <Price0Mbw> more in my pocket!"
+            Player::"Yeah, <Price0Mbw> more in my pocket!"
             rk_money_value -= Price0Mb
             money += Price0Mb
         Elseif 1
-            "Yeah, <Price1Mbw> more in my pocket!"
+            Player::"Yeah, <Price1Mbw> more in my pocket!"
             rk_money_value -= Price1Mb
             money += Price1Mb
         Elseif 2
-            "Yeah, <Price2Mbw> more in my pocket!"
+            Player::"Yeah, <Price2Mbw> more in my pocket!"
             rk_money_value -= Price2Mb
             money += Price2Mb
         Elseif 3
-            "Yeah, <Price3Mbw> more in my pocket!"
+            Player::"Yeah, <Price3Mbw> more in my pocket!"
             rk_money_value -= Price3Mb
             money += Price3Mb
         Elseif 4
-            "Yeah, <Price4Mbw> more in my pocket!"
+            Player::"Yeah, <Price4Mbw> more in my pocket!"
             rk_money_value -= Price4Mb
             money += Price4Mb
         Elseif 5
-            "With <Price5Mbw> I can do a lot of crazy things!"
+            Player::"With <Price5Mbw> I can do a lot of crazy things!"
             rk_money_value -= Price5Mb
             money += Price5Mb
         Elseif 6
-            "I've decided my money will be safer in my pockets than here, don't ask me why!"
+            Player::"I've decided my money will be safer in my pockets than here, don't ask me why!"
             money += rk_money_value
             rk_money_value => 0
         Elseif 7
-            "Finally, I think I'll keep my money in my account for the moment!"
+            Player::"Finally, I think I'll keep my money in my account for the moment!"
         Endif
     Elseif 2
-        "Ok, I guess I don't need any more jewellery. Let see how I can get for !"
+        Player::"Ok, I guess I don't need any more jewellery. Let see how I can get for !"
         PriceJ = rk_jewellerie_value*Random(0.9, 1.02)
         PriceJConverted = PriceJ.convertToLocalCurrency(true)
-        "After some tough negotiation, the best price I could get for my jewellery from this bank was <PriceJConverted>. Should I go ahead with the sale?"
+        Player::"After some tough negotiation, the best price I could get for my jewellery from this bank was <PriceJConverted>. Should I go ahead with the sale?"
         0:: "Yes"
         1:: "No"
         
         If 0
-            "That's fair enough I guess. It's time to buy something else with that cash ..."
+            Player::"That's fair enough I guess. It's time to buy something else with that cash ..."
             money += JPrice
             rk_jewellerie_value -= JPrice
             mood +0.05 
             karma -0.05
         Else
-            "I should look around first. They offering me shit for my jewellery. It worth more than that!"
+            Player::"I should look around first. They offering me shit for my jewellery. It worth more than that!"
         Endif
     Elseif 4
             Actor5 = generatePersonTemporary()
