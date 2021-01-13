@@ -9,7 +9,7 @@ OTHER: none
     If money < -50
         Player(Anxious)::"I am in debt. The jewellery store will not sell me anything."
     Else
-        // Get current sextoy types
+        // Get current jewellery types
         cheapJType = Player.getActorVar(rk_cheapJType)
         AffordableJType = Player.getActorVar(rk_AffordableJType)
         ClassyJType = Player.getActorVar(rk_ClassyJType)
@@ -21,8 +21,8 @@ OTHER: none
         
         Player::"What do I want to do?"
         0:: money >= 50:: "Buy jewellery"
-        1:: rk_jewellerie_value > 0:: "Sell my jewellery"
-        2:: rk_jewellerie_value > 0:: "Trade my jewellery"
+        1:: rk_jewellerie_value > 0:: "Sell some jewellery"
+        2:: rk_jewellerie_value > 0:: "Trade some jewellery"
         3:: "Do nothing"
     
         If 0
@@ -56,56 +56,96 @@ OTHER: none
         
             If 0
                 Player::"Maybe cheap, but the best gift for my children, strangers or my prostitutes..."
-                Player.setActorVar(rk_cheapJType, 1)
+                
+                if cheapJType <= 0
+                    Player.setActorVar(rk_cheapJType, 1)
+                Else
+                    Player.modifyActorVar(rk_cheapJType, 1)
+                Endif
                 money -= Price0
                 rk_jewellerie_value += Price0*Random(1, 1.05)
                 mood += Random(0, 2)
                                 
             Elseif 1
                 Player::"I'm pretty sure, with that I will look nice!"
-                Player.setActorVar(rk_AffordableJType, 1)
+                
+                if AffordableJType <= 0
+                    Player.setActorVar(rk_AffordableJType, 1)
+                Else
+                    Player.modifyActorVar(rk_AffordableJType, 1)
+                Endif
                 money -= Price1
                 rk_jewellerie_value += Price1*Random(1, 1.05)
                 mood += Random(0, 2)
                 
             Elseif 2
                 Player::"One more classy jewellery in my chest."
-                Player.setActorVar(rk_ClassyJType, 1)
+                
+                if ClassyJType <= 0
+                    Player.setActorVar(rk_ClassyJType, 1)
+                Else
+                    Player.modifyActorVar(rk_ClassyJType, 1)
+                Endif
                 money -= Price2
                 rk_jewellerie_value += Price2*Random(1, 1.05)
                 mood += Random(0, 3)
                 
             Elseif 3
                 Player::"Sure, with that I will look pretty cool !"
-                Player.setActorVar(rk_NiceJType, 1)
+                
+                if NiceJType <= 0
+                    Player.setActorVar(rk_NiceJType, 1)
+                Else
+                    Player.modifyActorVar(rk_NiceJType, 1)
+                Endif
                 money -= Price3
                 rk_jewellerie_value += Price3*Random(1.01, 1.05)
                 mood += Random(0, 4)
                 
             Elseif 4
                 Player::"One more fashion jewellery in my chest."
-                Player.setActorVar(rk_FashionJType, 1)
+                
+                if FashionJType <= 0
+                    Player.setActorVar(rk_FashionJType, 1)
+                Else
+                    Player.modifyActorVar(rk_FashionJType, 1)
+                Endif
                 money -= Price4
                 rk_jewellerie_value += Price4*Random(1.02, 1.05)
                 mood += Random(0, 4)
                 
             Elseif 5
                 Player::"One more handcrafted jewellery for my collection."
-                Player.setActorVar(rk_HandcraftedJType, 1)
+                
+                if HandcraftedJType <= 0
+                    Player.setActorVar(rk_HandcraftedJType, 1)
+                Else
+                    Player.modifyActorVar(rk_HandcraftedJType, 1)
+                Endif
                 money -= Price5
                 rk_jewellerie_value += Price5*Random(1.02, 1.05)
                 mood += Random(0, 5)
                 
             Elseif 6
                 Player::"When you want to look rich, that's the jewellery you buy !"
-                Player.setActorVar(rk_FinestJType, 1)
+                
+                if FinestJType <= 0
+                    Player.setActorVar(rk_FinestJType, 1)
+                Else
+                    Player.modifyActorVar(rk_FinestJType, 1)
+                Endif
                 money -= Price6
                 rk_jewellerie_value += Price6*Random(1.02, 1.05)
                 mood += Random(0, 5)
                 
             Elseif 7
                 Player::"When you want to look very rich, that's the jewellery you buy !"
-                Player.setActorVar(rk_FirstQualityJType, 1)
+                
+                if FirstQualityJType <= 0
+                    Player.setActorVar(rk_FirstQualityJType, 1)
+                Else
+                    Player.modifyActorVar(rk_FirstQualityJType, 1)
+                Endif
                 money -= Price7
                 rk_jewellerie_value += Price7*Random(1.03, 1.05)
                 mood += Random(0, 5)
@@ -127,14 +167,15 @@ OTHER: none
             CPrice5Mb = Price5Mb.convertToLocalCurrency(true)
             Price6Mb = rk_jewellerie_value*Random(0.8, 1.05)
             CPrice6Mb = Price6Mb.convertToLocalCurrency(true)
+            jewelsvalue = value_artproducts
         
             Player::"It's time to get rid of some jewellery !"
-            0:: rk_jewellerie_value > 1000:: "I sell <CPrice0Mb> of your jewellery"
-            1:: rk_jewellerie_value > 5000:: "I sell <CPrice1Mb> of your jewellery"
-            2:: rk_jewellerie_value > 10000:: "I sell <CPrice2Mb> of your jewellery"
-            3:: rk_jewellerie_value > 25000:: "I sell <CPrice3Mb> of your jewellery"
-            4:: rk_jewellerie_value > 50000:: "I sell <CPrice4Mb> of your jewellery"
-            5:: rk_jewellerie_value > 100000:: "I sell <CPrice5Mb> of your jewellery"
+            0:: rk_jewellerie_value > 1000:: "I sell <CPrice0Mb> of my jewellery"
+            1:: rk_jewellerie_value > 5000:: "I sell <CPrice1Mb> of my jewellery"
+            2:: rk_jewellerie_value > 10000:: "I sell <CPrice2Mb> of my jewellery"
+            3:: rk_jewellerie_value > 25000:: "I sell <CPrice3Mb> of my jewellery"
+            4:: rk_jewellerie_value > 50000:: "I sell <CPrice4Mb> of my jewellery"
+            5:: rk_jewellerie_value > 100000:: "I sell <CPrice5Mb> of my jewellery"
             6:: rk_jewellerie_value > 1:: "I sell all my jewellery for (<CPrice6Mb>)"
             7:: "Do nothing"
         
@@ -146,6 +187,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price0Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_cheapJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_cheapJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price0
                     money += Price0
                     followUp(sex_refund)
@@ -159,6 +206,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price1Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_ClassyJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_ClassyJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price1
                     money += Price1
                     followUp(sex_refund)
@@ -172,6 +225,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price2Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_NiceJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_NiceJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price2
                     money += Price2
                 EndIf
@@ -184,6 +243,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price3Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_FashionJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FashionJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price3
                     money += Price3
                 EndIf
@@ -196,6 +261,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price4Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_HandcraftedJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_HandcraftedJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price4
                     money += Price4
                 EndIf
@@ -208,6 +279,12 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price5Mb>$ more inside my pockets !"
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_FinestJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FinestJType, 1)
+                    Endif
                     rk_jewellerie_value -= Price5
                     money += Price5
                 EndIf
@@ -220,7 +297,13 @@ OTHER: none
     
                 If 0
                     Player::"That's a fair enough offer I suppose. <Price6Mb>$ more inside my pockets !"
-                    rk_jewellerie_value -= Price6
+                    
+                    if jewelsvalue <= 0
+                        Player.setActorVar(rk_FirstQualityJType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FirstQualityJType, 1)
+                    Endif
+                    rk_jewellerie_value => 0
                     money += Price6
                 EndIf
 

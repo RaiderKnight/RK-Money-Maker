@@ -112,10 +112,9 @@ OTHER: none
             arousal -= Random(0, 30)
         Elseif 6
             Player::"Finally, I'm not in the mood to have sex with stranger !"
-            followUp(buy_jewelleryprod)
+
         Endif
-    Else
-       followUp(buy_jewelleryprod)
+
     Endif
 SceneEnd()
 timeout(96, sex_refund)

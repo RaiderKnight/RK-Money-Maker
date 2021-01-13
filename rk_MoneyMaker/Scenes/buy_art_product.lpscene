@@ -1,0 +1,386 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+    If money < -100
+        Player(Anxious)::"I am in debt. The store owner will not sell me anything."
+    Else
+        // Get current art types
+        cheapAType = Player.getActorVar(rk_cheapAType)
+        AffordableAType = Player.getActorVar(rk_AffordableAType)
+        ClassyAType = Player.getActorVar(rk_ClassyAType)
+        NiceAType = Player.getActorVar(rk_NiceAType)
+        FashionAType = Player.getActorVar(rk_FashionAType)
+        HandcraftedAType = Player.getActorVar(rk_HandcraftedAType)
+        FinestAType = Player.getActorVar(rk_FinestAType)
+        FirstQualityAType = Player.getActorVar(rk_FirstQualityAType)
+        
+        Player::"What do I want to do?"
+        0:: money >= 50:: "Buy art"
+        1:: value_artproducts > 0:: "Sell some art"
+        2:: value_artproducts > 0:: "Trade some art"
+        3:: "Do nothing"
+    
+        If 0
+            Price0 = Random(100, 500)
+            Price0C = Price0.convertToLocalCurrency(true)
+            Price1 = Random(600, 2500)
+            Price1C = Price1.convertToLocalCurrency(true)
+            Price2 = Random(3000, 5000)
+            Price2C = Price2.convertToLocalCurrency(true)
+            Price3 = Random(5500, 8000)
+            Price3C = Price3.convertToLocalCurrency(true)
+            Price4 = Random(9000, 14000)
+            Price4C = Price4.convertToLocalCurrency(true)
+            Price5 = Random(15000, 20000)
+            Price5C = Price5.convertToLocalCurrency(true)
+            Price6 = Random(28000, 45000)
+            Price6C = Price6.convertToLocalCurrency(true)
+            Price7 = Random(100000, 175000)
+            Price7C = Price7.convertToLocalCurrency(true)
+        
+            Player::"There are many choice for my collection here. Honestly, I will take my time to choose !"
+            0:: money + value_artproducts >= Price0:: "Cheap art for <Price0C>"
+            1:: money + value_artproducts >= Price1:: "Affordable art for <Price1C>"
+            2:: money + value_artproducts >= Price2:: "Classy art for <Price2C>"
+            3:: money + value_artproducts >= Price3:: "Nice art for <Price3C>"
+            4:: money + value_artproducts >= Price4:: "Fashion art for <Price4C>"
+            5:: money + value_artproducts >= Price5:: "Handcrafted art for <Price5C>"
+            6:: money + value_artproducts >= Price6:: "Finest art for <Price6C>"
+            7:: money + value_artproducts >= Price7:: "First quality art for <Price7C>"
+            8:: "Buy nothing"
+        
+            If 0
+                Player::"Maybe cheap, but it always useful inside some rooms or to give at a gifts exchange."
+                
+                if cheapAType <= 0
+                    Player.setActorVar(rk_cheapAType, 1)
+                Else
+                    Player.modifyActorVar(rk_cheapAType, 1)
+                Endif
+                money -= Price0
+                value_artproducts += Price0*Random(1, 1.05)
+                mood += Random(0, 2)
+                                
+            Elseif 1
+                Player::"I'm pretty sure, that will put life inside my house."
+                
+                if AffordableAType <= 0
+                    Player.setActorVar(rk_AffordableAType, 1)
+                Else
+                    Player.modifyActorVar(rk_AffordableAType, 1)
+                Endif
+                money -= Price1
+                value_artproducts += Price1*Random(1, 1.05)
+                mood += Random(0, 2)
+                
+            Elseif 2
+                Player::"One more classy art added to my collection."
+                
+                if ClassyAType <= 0
+                    Player.setActorVar(rk_ClassyAType, 1)
+                Else
+                    Player.modifyActorVar(rk_ClassyAType, 1)
+                Endif
+                money -= Price2
+                value_artproducts += Price2*Random(1, 1.05)
+                mood += Random(0, 3)
+                
+            Elseif 3
+                Player::"Sure, with that I will look pretty cool in my house !"
+                
+                if NiceAType <= 0
+                    Player.setActorVar(rk_NiceAType, 1)
+                Else
+                    Player.modifyActorVar(rk_NiceAType, 1)
+                Endif
+                money -= Price3
+                value_artproducts += Price3*Random(1.01, 1.05)
+                mood += Random(0, 4)
+                
+            Elseif 4
+                Player::"One more fashion art added to my collection."
+                
+                if FashionAType <= 0
+                    Player.setActorVar(rk_FashionAType, 1)
+                Else
+                    Player.modifyActorVar(rk_FashionAType, 1)
+                Endif
+                money -= Price4
+                value_artproducts += Price4*Random(1.02, 1.05)
+                mood += Random(0, 4)
+                
+            Elseif 5
+                Player::"One more handcrafted art added to my collection."
+                
+                if HandcraftedAType <= 0
+                    Player.setActorVar(rk_HandcraftedAType, 1)
+                Else
+                    Player.modifyActorVar(rk_HandcraftedAType, 1)
+                Endif
+                money -= Price5
+                value_artproducts += Price5*Random(1.02, 1.05)
+                mood += Random(0, 5)
+                
+            Elseif 6
+                Player::"When you want to look rich, that's the art you buy !"
+                
+                if FinestAType <= 0
+                    Player.setActorVar(rk_FinestAType, 1)
+                Else
+                    Player.modifyActorVar(rk_FinestAType, 1)
+                Endif
+                money -= Price6
+                value_artproducts += Price6*Random(1.02, 1.05)
+                mood += Random(0, 5)
+                
+            Elseif 7
+                Player::"When you want to look very rich, that's the art you buy !"
+                
+                if FirstQualityAType <= 0
+                    Player.setActorVar(rk_FirstQualityAType, 1)
+                Else
+                    Player.modifyActorVar(rk_FirstQualityAType, 1)
+                Endif
+                money -= Price7
+                value_artproducts += Price7*Random(1.03, 1.05)
+                mood += Random(0, 5)
+                
+            Endif
+        
+        Elseif 1
+            Price0Mb = 1000*Random(0.8, 1.05)
+            CPrice0Mb = Price0Mb.convertToLocalCurrency(true)
+            Price1Mb = 5000*Random(0.8, 1.05)
+            CPrice1Mb = Price1Mb.convertToLocalCurrency(true)
+            Price2Mb = 10000*Random(0.8, 1.05)
+            CPrice2Mb = Price2Mb.convertToLocalCurrency(true)
+            Price3Mb = 25000*Random(0.8, 1.05)
+            CPrice3Mb = Price3Mb.convertToLocalCurrency(true)
+            Price4Mb = 50000*Random(0.8, 1.05)
+            CPrice4Mb = Price4Mb.convertToLocalCurrency(true)
+            Price5Mb = 100000*Random(0.8, 1.05)
+            CPrice5Mb = Price5Mb.convertToLocalCurrency(true)
+            Price6Mb = value_artproducts*Random(0.8, 1.05)
+            CPrice6Mb = Price6Mb.convertToLocalCurrency(true)
+            artvalue = value_artproducts
+        
+            Player::"It's time to get rid of some art !"
+            0:: value_artproducts > 1000:: "I sell <CPrice0Mb> of my art"
+            1:: value_artproducts > 5000:: "I sell <CPrice1Mb> of my art"
+            2:: value_artproducts > 10000:: "I sell <CPrice2Mb> of my art"
+            3:: value_artproducts > 25000:: "I sell <CPrice3Mb> of my art"
+            4:: value_artproducts > 50000:: "I sell <CPrice4Mb> of my art"
+            5:: value_artproducts > 100000:: "I sell <CPrice5Mb> of my art"
+            6:: value_artproducts > 1:: "I sell all my art for (<CPrice6Mb>)"
+            7:: "Do nothing"
+        
+            If 0
+                Actor(Flirty)::"I offer you <Price0Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price0Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_cheapAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_cheapAType, 1)
+                    Endif
+                    value_artproducts -= Price0
+                    money += Price0
+                    followUp(sex_refund)
+                EndIf
+     
+            Elseif 1
+                Actor(Flirty)::"I offer you <Price1Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price1Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_AffordableAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_AffordableAType, 1)
+                    Endif
+                    value_artproducts -= Price1
+                    money += Price1
+                    followUp(sex_refund)
+               EndIf
+
+            Elseif 2
+                Actor(Flirty)::"I offer you <Price2Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price2Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_ClassyAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_ClassyAType, 1)
+                    Endif
+                    value_artproducts -= Price2
+                    money += Price2
+                EndIf
+            
+            Elseif 3
+                Actor(Flirty)::"I offer you <Price3Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price3Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_NiceAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_NiceAType, 1)
+                    Endif
+                    value_artproducts -= Price3
+                    money += Price3
+                EndIf
+            
+            Elseif 4
+                Actor(Flirty)::"I offer you <Price4Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price4Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_FashionAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FashionAType, 1)
+                    Endif
+                    value_artproducts -= Price4
+                    money += Price4
+                EndIf
+            
+            Elseif 5
+                Actor(Flirty)::"I offer you <Price5Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price5Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_FinestAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FinestAType, 1)
+                    Endif
+                    value_artproducts -= Price5
+                    money += Price5
+                EndIf
+
+            Elseif 6
+                Actor(Flirty)::"I offer you <Price6Mb>$ for your art"
+                Player::"What should I do?"
+                0::"Accept"
+                1::"Refuse"
+    
+                If 0
+                    Player::"That's a fair enough offer I suppose. <Price6Mb>$ more inside my pockets !"
+                    
+                    if artvalue <= 0
+                        Player.setActorVar(rk_FirstQualityAType, 0)
+                    Else
+                        Player.modifyActorVar(rk_FirstQualityAType, 1)
+                    Endif
+                    value_artproducts => 0
+                    money += Price6
+                EndIf
+
+            Elseif 7
+                Player::"Finally, I think I'll keep my art !"
+            Endif
+        
+        Elseif 2
+            JPrice0 = Random(100, 500)
+            JPrice0C = JPrice0.convertToLocalCurrency(true)
+            JPrice1 = Random(600, 2500)
+            JPrice1C = JPrice1.convertToLocalCurrency(true)
+            JPrice2 = Random(3000, 5000)
+            JPrice2C = JPrice2.convertToLocalCurrency(true)
+            JPrice3 = Random(5500, 8000)
+            JPrice3C = JPrice3.convertToLocalCurrency(true)
+            JPrice4 = Random(9000, 14000)
+            JPrice4C = JPrice4.convertToLocalCurrency(true)
+            JPrice5 = Random(15000, 20000)
+            JPrice5C = JPrice5.convertToLocalCurrency(true)
+            JPrice6 = Random(28000, 45000)
+            JPrice6C = JPrice6.convertToLocalCurrency(true)
+            JPrice7 = Random(100000, 175000)
+            JPrice7C = JPrice7.convertToLocalCurrency(true)
+        
+            Player::"There are many choice for trade here. Honestly, I will take my time to choose !"
+            0:: money + value_artproducts >= JPrice0:: "Cheap art for <JPrice0C>"
+            1:: money + value_artproducts >= JPrice1:: "Affordable art for <JPrice1C>"
+            2:: money + value_artproducts >= JPrice2:: "Classy art for <JPrice2C>"
+            3:: money + value_artproducts >= JPrice3:: "Nice art for <JPrice3C>"
+            4:: money + value_artproducts >= JPrice4:: "Fashion art for <JPrice4C>"
+            5:: money + value_artproducts >= JPrice5:: "Handcrafted art for <JPrice5C>"
+            6:: money + value_artproducts >= JPrice6:: "Finest art for <JPrice6C>"
+            7:: money + value_artproducts >= JPrice7:: "First quality art for <JPrice7C>"
+            8:: "Buy nothing"
+        
+            If 0
+                Player::"That was a fair offer I guess. Ok, which room am I going to put this in !"
+                money -= JPrice0 - value_artproducts
+                value_artproducts += JPrice0
+                
+            Elseif 1
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice1 - value_artproducts
+                value_artproducts += JPrice1
+                
+            Elseif 2
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice2 - value_artproducts
+                value_artproducts += JPrice2
+                
+            Elseif 3
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice3 - value_artproducts
+                value_artproducts += JPrice3
+                
+            Elseif 4
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice4 - value_artproducts
+                value_artproducts += JPrice4
+                
+            Elseif 5
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice5 - value_artproducts
+                value_artproducts += JPrice5
+                
+            Elseif 6
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice6 - value_artproducts
+                value_artproducts += JPrice6
+                
+            Elseif 7
+                Player::"That was a fair offer I guess. I'm hurry to find a place inside my house to exposed it !"
+                money -= JPrice7 - value_artproducts
+                value_artproducts += JPrice7
+                
+            Endif
+        Endif
+    Endif   
+SceneEnd()
