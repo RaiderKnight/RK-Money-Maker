@@ -4,7 +4,7 @@ https://github.com/vinfamy/LifePlay
 
 
 ### 1- rk_MoneyMaker : 
-Add the possibility to deposit and withdraw money. You can also buy/sell/trade jewellery at some stores.
+Add the possibility to deposit and withdraw money. You can also buy/sell/trade jewellery and arts at some stores.
 
 ### Module requirements
 Vima's bedroom presets (1.1)
@@ -24,5 +24,5 @@ After the mod have been installed, make sure the mod is active in the Mod Manage
 
 ### How to update
 * Download and extract the latest version on your pc
-* Delete the old mod inside c:\..\LifePlay\Content\Modules\rk_MoneyMaker
+* Delete the old mod (rk_MoneyMaker) inside c:\..\LifePlay\Content\Modules\
 * Upload the new version of rk_MoneyMaker inside c:\..\LifePlay\Content\Modules\
