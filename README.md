@@ -26,3 +26,7 @@ After the mod have been installed, make sure the mod is active in the Mod Manage
 * Download and extract the latest version on your pc
 * Delete the old mod (rk_MoneyMaker) inside c:\..\LifePlay\Content\Modules\
 * Upload the new version of rk_MoneyMaker inside c:\..\LifePlay\Content\Modules\
+
+
+
+> I am a freelance coder, I am in no way associated, affiliate or employee of the LifePlay team.
