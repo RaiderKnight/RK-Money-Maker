@@ -1,4 +1,4 @@
-<h1>Money-Maker</h1>
+<h1>Money Maker</h1>
 <p>Module for the game LifePlay</p>
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
@@ -8,6 +8,8 @@
 <p>8 types of jewellery.</p>
 <p>8 types of arts.</p>
 <p>Contain 4 scenes.</p>
+<br>
+<hr>
 <br>
 <h3>Module requirements</h3>
 <ul>
@@ -19,7 +21,7 @@
 <p>Download the mod and add it to : ..\LifePlay\Content\Modules</p>
 <p>Make sure you don't leave an extra directory level for the mod. For example, it should go like this:</p>
 <p>c:\..\LifePlay\Content\Modules\rk_MoneyMaker</p>
-<strong>NOT</strong>
+<p><strong>NOT</strong></p>
 <p>c:\..\LifePlay\Content\Modules\RK-Money-Maker\rk_MoneyMaker</p>
 <p>After the mod have been installed, make sure the mod is active in the Mod Manager.</p>
 <br>
@@ -30,5 +32,24 @@
 <li>Upload the new version of rk_MoneyMaker inside c:\..\LifePlay\Content\Modules\</li>
 </ul>
 <br>
+<hr>
 <br>
-> I am a freelance coder, I am in no way associated, affiliate or employee of the LifePlay team.
+<h3>How to contribute</h3>
+<ul>
+<li>Supporting me on <a href="https://www.patreon.com/raiderknight">Patreon</a></li>
+<li>Sending your ideas or feedback: Here on Github or on <a href="https://discord.gg/d3U9E2wb4Y">Discord</a></li>
+<li>Adding more content to the module.</li>
+<li>Improving the module, texts,...</li>
+<li>Reporting bugs, errors and typos</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3>Contributors</h3>
+NickNo<br>
+<br>
+<hr>
+<br>
+<blockquote> I'm a freelance coder, who love playing with codes.<br>
+I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with the LifePlay team, or any of its subsidiaries or its affiliates.<br>
+All images, icons, animations, code snippets are from LifePlay.</blockquote>
