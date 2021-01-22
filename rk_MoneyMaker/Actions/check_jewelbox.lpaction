@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: check_jewelbox
+ACTION_NAME: Check jewel box
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 0 - 2
+TIMEOUT_MINUTES: 2
+ALSO_TIMEOUT: 
+EFFECTS: energy -0.15 (END)
+CONDITIONS: 
+MOVE_FIRST: true
+SCENE_ALWAYS: check_jewelbox
+ANIMATION: 
