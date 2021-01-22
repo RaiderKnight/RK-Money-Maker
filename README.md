@@ -3,11 +3,18 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoneyMaker :</h3>
+<p>All the mods I made to make money in the city, in one.</p>
 <p>Add the possibility to deposit and withdraw money at the bank.</p>
-<p>You can also buy/sell/trade jewellery and arts at some stores in the city.</p>
-<p>8 types of jewellery.</p>
+<p>You can buy/sell/trade jewelry, separately.</p>
+<p>You can buy/sell/trade arts.</p>
+<p>8 types of jewelry.</p>
 <p>8 types of arts.</p>
 <p>Contain 4 scenes.</p>
+<br>
+<p><strong>This mod contains all these mini-shops:</strong></p>
+<ul>
+<li>RK-Jewelry-Shop</li>
+</ul>
 <br>
 <hr>
 <br>
@@ -16,6 +23,14 @@
 <li>At least LifePlay 3.18</li>
 <li>Vima's bedroom presets (can be upload via <a href="https://github.com/NickNo-dev/LP-ModManager">LP-ModManager</a>)</li>
 </ul>
+<br>
+<h3> Module conflicts</h3>
+<p>You need to uninstall these mods (same content...)</p>
+<ol>
+<li>RK-Jewelry-Shop</li>
+</ol>
+<br>
+<hr>
 <br>
 <h3>How to install</h3>
 <p>Download the mod and add it to : ..\LifePlay\Content\Modules</p>
