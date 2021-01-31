@@ -14,7 +14,7 @@ OTHER: none
         stock_HandcraftedJType = Player.getActorVar(stock_HandcraftedJType)
         stock_FinestJType = Player.getActorVar(stock_FinestJType)
         stock_FirstQualityJType = Player.getActorVar(stock_FirstQualityJType)
-        
+        jewel_value = Player.getActorVar(jewel_value)
         jewel_value = stock_cheapJType + stock_AffordableJType + stock_ClassyJType + stock_NiceJType + stock_FashionJType + stock_HandcraftedJType + stock_FinestJType + stock_FirstQualityJType
 
         If money < -50
