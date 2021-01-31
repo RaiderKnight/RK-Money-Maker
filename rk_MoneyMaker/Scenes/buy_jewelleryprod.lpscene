@@ -118,14 +118,14 @@ OTHER: none
             Elseif 1
 
                 Player::"It's time to get rid of some Jewelry!"
-                0:: stock_cheapJType > 0::"Sell cheap Jewelry (<stock_cheapJType> in stock)"
-                1:: stock_AffordableJType > 0::"Sell affordable Jewelry (<stock_AffordableJType> in stock)"
-                2:: stock_ClassyJType > 0::"Sell classy Jewelry (<stock_ClassyJType> in stock)"
-                3:: stock_NiceJType > 0::"Sell nice Jewelry (<stock_NiceJType> in stock)"
-                4:: stock_FashionJType > 0::"Sell fashion Jewelry (<stock_FashionJType> in stock)"
-                5:: stock_HandcraftedJType > 0::"Sell handcrafted Jewelry (<stock_HandcraftedJType> in stock)"
-                6:: stock_FinestJType > 0::"Sell finest Jewelry (<stock_FinestJType> in stock)"
-                7:: stock_FirstQualityJType > 0::"Sell first quality Jewelry (<stock_FirstQualityJType> in stock)"
+                0:: stock_cheapJType > 1::"Sell cheap Jewelry (<stock_cheapJType> in stock)"
+                1:: stock_AffordableJType > 1::"Sell affordable Jewelry (<stock_AffordableJType> in stock)"
+                2:: stock_ClassyJType > 1::"Sell classy Jewelry (<stock_ClassyJType> in stock)"
+                3:: stock_NiceJType > 1::"Sell nice Jewelry (<stock_NiceJType> in stock)"
+                4:: stock_FashionJType > 1::"Sell fashion Jewelry (<stock_FashionJType> in stock)"
+                5:: stock_HandcraftedJType > 1::"Sell handcrafted Jewelry (<stock_HandcraftedJType> in stock)"
+                6:: stock_FinestJType > 1::"Sell finest Jewelry (<stock_FinestJType> in stock)"
+                7:: stock_FirstQualityJType > 1::"Sell first quality Jewelry (<stock_FirstQualityJType> in stock)"
                 99:: "Do nothing"
         
                 If 0

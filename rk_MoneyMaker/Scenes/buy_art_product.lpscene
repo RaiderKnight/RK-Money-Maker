@@ -125,14 +125,14 @@ OTHER: none
         Elseif 1
 
             Player::"It's time to get rid of some art!"
-            0:: cheapAType > 0::"Sell cheap art item (<cheapAType> in stock)"
-            1:: AffordableAType > 0::"Sell affordable art item (<AffordableAType> in stock)"
-            2:: ClassyAType > 0::"Sell classy art item (<ClassyAType> in stock)"
-            3:: NiceAType > 0::"Sell nice art item (<NiceAType> in stock)"
-            4:: FashionAType > 0::"Sell fashion art item (<FashionAType> in stock)"
-            5:: HandcraftedAType > 0::"Sell handcrafted art item (<HandcraftedAType> in stock)"
-            6:: FinestAType > 0::"Sell finest art item (<FinestAType> in stock)"
-            7:: FirstQualityAType > 0::"Sell first quality art item (<FirstQualityAType> in stock)"
+            0:: cheapAType > 1::"Sell cheap art item (<cheapAType> in stock)"
+            1:: AffordableAType > 1::"Sell affordable art item (<AffordableAType> in stock)"
+            2:: ClassyAType > 1::"Sell classy art item (<ClassyAType> in stock)"
+            3:: NiceAType > 1::"Sell nice art item (<NiceAType> in stock)"
+            4:: FashionAType > 1::"Sell fashion art item (<FashionAType> in stock)"
+            5:: HandcraftedAType > 1::"Sell handcrafted art item (<HandcraftedAType> in stock)"
+            6:: FinestAType > 1::"Sell finest art item (<FinestAType> in stock)"
+            7:: FirstQualityAType > 1::"Sell first quality art item (<FirstQualityAType> in stock)"
             99:: "Do nothing"
         
             If 0
