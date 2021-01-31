@@ -3,7 +3,7 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoneyMaker :</h3>
-<p>All the mods I made to make money in the city, in one.</p>
+<p>3 mods that I made to make money, in one package.</p>
 <p>Add the possibility to deposit and withdraw money at the bank.</p>
 <p>You can buy/sell/trade jewelry, separately.</p>
 <p>You can buy/sell/trade arts.</p>
@@ -11,8 +11,10 @@
 <p>8 types of arts.</p>
 <p>Contain 4 scenes.</p>
 <br>
-<p><strong>This mod contains all these mini-shops:</strong></p>
+<p><strong>This mod contains all these mini-mods:</strong></p>
 <ul>
+<li>RK-Art-Items-Shop</li>
+<li>RK-Bank-Shop</li>
 <li>RK-Jewelry-Shop</li>
 </ul>
 <br>
@@ -24,9 +26,11 @@
 <li>Vima's bedroom presets (can be upload via <a href="https://github.com/NickNo-dev/LP-ModManager">LP-ModManager</a>)</li>
 </ul>
 <br>
-<h3> Module conflicts</h3>
+<h3>Module conflicts</h3>
 <p>You need to uninstall these mods (same content...)</p>
 <ol>
+<li>RK-Art-Items-Shop</li>
+<li>RK-Bank-Shop</li>
 <li>RK-Jewelry-Shop</li>
 </ol>
 <br>
@@ -39,6 +43,8 @@
 <p><strong>NOT</strong></p>
 <p>c:\..\LifePlay\Content\Modules\RK-Money-Maker\rk_MoneyMaker</p>
 <p>After the mod have been installed, make sure the mod is active in the Mod Manager.</p>
+<br>
+<hr>
 <br>
 <h3>How to update</h3>
 <ul>
