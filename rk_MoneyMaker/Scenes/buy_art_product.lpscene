@@ -83,7 +83,7 @@ OTHER: none
             Elseif 3
             
                 Player.modifyActorVar(NiceAType, 1)
-                Player::"Sure, with that I will look pretty cool in my house !"
+                Player::"Sure, with that I will look pretty cool inside my house!"
                 
                 money -= Price3
                 mood += Random(0, 4)

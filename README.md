@@ -9,7 +9,7 @@
 <p>You can buy/sell/trade arts.</p>
 <p>8 types of jewelry.</p>
 <p>8 types of arts.</p>
-<p>Contain 4 scenes.</p>
+<p>Contain 6 scenes.</p>
 <br>
 <p><strong>This mod contains all these mini-mods:</strong></p>
 <ul>
@@ -22,7 +22,7 @@
 <br>
 <h3>Module requirements</h3>
 <ul>
-<li>At least LifePlay 3.18</li>
+<li>At least the game LifePlay 3.18</li>
 <li>Vima's bedroom presets (can be upload via <a href="https://github.com/NickNo-dev/LP-ModManager">LP-ModManager</a>)</li>
 </ul>
 <br>

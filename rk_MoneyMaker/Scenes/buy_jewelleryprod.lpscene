@@ -18,12 +18,12 @@ OTHER: none
         jewel_value = stock_cheapJType + stock_AffordableJType + stock_ClassyJType + stock_NiceJType + stock_FashionJType + stock_HandcraftedJType + stock_FinestJType + stock_FirstQualityJType
 
         If money < -50
-            Player(Anxious)::"I am in debt. The Jewelry  store will not sell me anything."
+            Player(Anxious)::"I am in debt. The Jewelry store will not sell me anything."
         Else
     
-            Player(Curious)::"There is a lot of nice Jewelry  here."
+            Player(Curious)::"There is a lot of nice Jewelry here."
             Player(Curious)::"What do I want to do?"
-            0:: money >= 50:: "Buy Jewelry "
+            0:: money >= 50:: "Buy Jewelry"
             1:: jewel_value >= 1::"Sell some Jewelry"
             2:: jewel_value >= 1::"Trade some Jewelry"
             3:: "Do nothing"
@@ -46,7 +46,7 @@ OTHER: none
                 Price7 = Random(50000, 75000)
                 Price7C = Price7.convertToLocalCurrency()
         
-                Player::"There are many choice for Jewelry  here. Honestly, I will take my time to choosethe right one !"
+                Player::"There are many choice for Jewelry here. Honestly, I will take my time to choose the right one !"
                 0:: money > Price0 ::"Cheap Jewelry  for <Price0C>"
                 1:: money > Price1 ::"Affordable Jewelry  for <Price1C>"
                 2:: money > Price2 ::"Classy Jewelry  for <Price2C>"
