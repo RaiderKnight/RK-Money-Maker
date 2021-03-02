@@ -3,6 +3,8 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoneyMaker :</h3>
+<p>Version: 1.0.1</p>
+<br>
 <p>3 mods that I made to make money, in one package.</p>
 <p>Add the possibility to deposit and withdraw money at the bank.</p>
 <p>You can buy/sell/trade jewelry, separately.</p>
