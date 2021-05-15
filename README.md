@@ -3,7 +3,7 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoneyMaker :</h3>
-<p>Version: 1.0.1</p>
+<p>Version: 1.0.2</p>
 <br>
 <p>3 mods that I made to make money, in one package.</p>
 <p>Add the possibility to deposit and withdraw money at the bank.</p>
@@ -26,7 +26,10 @@
 <ul>
 <li>At least the game LifePlay 3.18</li>
 <li>Vima's bedroom presets (can be upload via <a href="https://github.com/NickNo-dev/LP-ModManager">LP-ModManager</a>)</li>
+<li><a href="https://github.com/RaiderKnight/RK-Home-Inventories" tilte="Home Inventories Mod">rk_Home_Inventories</a></li>
 </ul>
+<br>
+<hr>
 <br>
 <h3>Module conflicts</h3>
 <p>You need to uninstall these mods (same content...)</p>
